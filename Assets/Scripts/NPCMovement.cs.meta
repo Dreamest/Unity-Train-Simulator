@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 124cac39a6abd5c44b74abd503ea0b44
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - self: {instanceID: 0}
+  - trainDoor1: {instanceID: 0}
+  - trainDoor2: {instanceID: 0}
+  - trainDoor3: {instanceID: 0}
+  - trainDoor4: {instanceID: 0}
+  - train: {fileID: 459407800416577688, guid: 735867fa4ba48eb46ac935a0e202d062, type: 3}
+  - parent: {instanceID: 0}
+  - randomizerA: {instanceID: 0}
+  - randomizerB: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
