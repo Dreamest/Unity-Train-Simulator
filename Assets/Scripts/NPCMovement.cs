@@ -18,27 +18,13 @@ public class NPCMovement : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     private CharacterController controller;
     private Animator animator;
-    private bool validator, atA, mover;
+    private bool validator, atA, mover, firstTime;
     private Vector3 destination;
     private float timerA, timerB;
     // Start is called before the first frame update
     void Start()
     {
-        // controller = GetComponent<CharacterController>();
-        // animator = GetComponent<Animator>();
-        // agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        // agent.updatePosition = true;
-        // agent.updateRotation = true;
-        // allDoors = new List<GameObject>();
-        // allDoors.Add(trainDoor1);
-        // allDoors.Add(trainDoor2);
-        // allDoors.Add(trainDoor3);
-        // allDoors.Add(trainDoor4);
-        // validator = false;
-        // atA = tag == "NPCFromA";
-        // Debug.Log(atA);
-        // timerA = 0f;
-        // timerB = 0f;
+
     }
     private void Awake()
     {
@@ -56,6 +42,7 @@ public class NPCMovement : MonoBehaviour
         atA = tag == "NPCFromA";
         timerA = 0f;
         timerB = 0f;
+        firstTime = false;
         Physics.IgnoreLayerCollision(transform.gameObject.layer, transform.gameObject.layer, true); //Test this
     }
 
@@ -81,10 +68,11 @@ public class NPCMovement : MonoBehaviour
 
         }
 
+        //There's a 2 seconds window between reaching the place on the platform to be wanting to get on the train again.
         if (timerA > 0f)
         {
             timerA -= Time.deltaTime;
-            if (timerA < 5f)
+            if (timerA < 8f)
             {
                 tag = "NPCFromA";
                 timerA = 0f;
@@ -93,7 +81,7 @@ public class NPCMovement : MonoBehaviour
         if (timerB > 0f)
         {
             timerB -= Time.deltaTime;
-            if (timerB < 5f)
+            if (timerB < 8f)
             {
                 tag = "NPCFromB";
                 timerB = 0f;
@@ -124,7 +112,7 @@ public class NPCMovement : MonoBehaviour
             animator.SetTrigger("idle");
             agent.enabled = false;
             // agent.enabled = true;
-
+            firstTime = true;
             animator.enabled = false;
 
         }
@@ -132,28 +120,38 @@ public class NPCMovement : MonoBehaviour
         //Upon leaving the train, move towards a random position on the platform
         if (other.CompareTag("UPlatformB") && tag == "NPCFromA")
         {
+            Debug.Log("Moving towards randomizer B");
+
             destination = randomizerB.transform.position;
             animator.SetTrigger("walk");
             mover = false;
         }
         if (other.CompareTag("UPlatformA") && tag == "NPCFromB")
         {
+            Debug.Log("Moving towards randomizer A");
+
             destination = randomizerA.transform.position;
             animator.SetTrigger("walk");
             mover = false;
         }
 
         //Upon reaching random target, stop moving and start timer to change tag
-        if (other.CompareTag("randomizerB") && tag == "NPCFromA")
+        if (other.CompareTag("randomizerB") && tag == "NPCFromA" && firstTime)
         {
+            Debug.Log("Arrived randomizer B");
+
             animator.SetTrigger("idle");
             timerB = 10f;
+            firstTime = false;
         }
 
-        if (other.CompareTag("randomizerA") && tag == "NPCFromB")
+        if (other.CompareTag("randomizerA") && tag == "NPCFromB" && firstTime)
         {
+            Debug.Log("Arrived randomizer A");
+
             animator.SetTrigger("idle");
             timerA = 10f;
+            firstTime = false;
         }
     }
 

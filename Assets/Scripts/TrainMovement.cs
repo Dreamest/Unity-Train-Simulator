@@ -36,7 +36,7 @@ public class TrainMovement : MonoBehaviour
         if((other.CompareTag("NPCFromA") && onA) ||(other.CompareTag("NPCFromB") && onB))
         {
             peopleInStation++;
-            Debug.Log("Enter " + peopleInStation);
+            // Debug.Log("Enter " + peopleInStation);
 
         }
         if(peopleInStation > 0)
