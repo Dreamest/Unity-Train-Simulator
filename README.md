@@ -1,4 +1,4 @@
-# Unity-Train-Sinulator
+# Unity-Train-Simulator
  
 To run the simulation as intended, please run the Menu scene first.
 
