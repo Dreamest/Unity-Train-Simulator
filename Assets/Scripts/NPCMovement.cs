@@ -157,7 +157,6 @@ public class NPCMovement : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-
         //move from platform to train when it arrives
 
         //On lower platform, only leave the train when it's in idle mode
