@@ -16,6 +16,8 @@ UI SCIPTS
 * PeopleIndicator: Shows on the game window text boxes telling how many people are currently on each platform or on the train.
 * Platform: Simple script that updates the number of people currently on the platform.
 * ToggleCamera: Using a toggleGroup, allows switching between a side camera and a train front camera.
+* DayNightCycle: Spins the directional light around an axis in order to imitate a day/night cycle.
+* LightsControl: Turns on lamps on various objects at night, and off at day.
 
 GAME SCRIPTS:
 * TrainMovement: Informs the train when it can change it's states(Idle A, A to B, Idle B, B to A) based on encountering people on platforms A/B, as well as keeping track of the amount of people currently on the train.
