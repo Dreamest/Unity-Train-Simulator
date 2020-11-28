@@ -1,5 +1,6 @@
 # Unity-Train-Simulator
- 
+ ![Main Menu](https://i.ibb.co/F0jj5Kh/Screenshot-83.png)
+
 To run the simulation as intended, please run the Menu scene first.
 
 # Game Order: 
@@ -7,6 +8,7 @@ In the options menu, you can choose the amount of characters that'll start on ea
 Pressing the Play button from the main menu will start the game world scene.
 The train starts in Idle state, and will pick up passengers from the platform it's waiting at if there are any. Once all passengers have boarded, the train moves to the other platform, in which it'll drop its passengers and pick new ones.
 A passenger would like to get on the train if he waited for ~2 seconds after reaching his target platform. Once he spots the train, the NPC will move towards the nearest door. Upon reaching the door, he'll be teleported to another terrain, and move with the train. Once the train reaches the other station, the NPC gets off the train, and moves to a random location on the platform.
+ ![Options Menu](https://i.ibb.co/qBZtm0D/Screenshot-84.png)
 
 
 # Scripts:
@@ -24,6 +26,8 @@ GAME SCRIPTS:
 * SpawnCharacters: Using Instantiate, creates N/M NPC's on each platform based on values chosen from the options menu.
 * Randomizer: A script that handles invisible targets for the NPC's to move to once they get off the train.
 * NPCMovement: A script to handle the characters in the game. Using trigger functions, it notifies the NPC on what he should do next.
+ ![Twilight approaches](https://i.ibb.co/fpfczjj/4o5t7k.gif)
+
 
 # Storyboards
 If I'm an NPCFromA and on Upper PlatformA and the train arrives, I enter the train and move to the lower terrain.
@@ -31,4 +35,5 @@ When the train reaches Platform B, I move up, and out of the train. Then, I move
 Upon reaching my destination, I'll wait for ~2 seconds and change my tag.
 Now I'm NPCFromB and on Upper platform B.
 
+ ![Train front view](https://i.ibb.co/VMbQr9Z/Screenshot-91.png)
 
